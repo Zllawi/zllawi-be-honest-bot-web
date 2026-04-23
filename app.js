@@ -1,163 +1,83 @@
-const INVITE_URL =
-  "https://discord.com/oauth2/authorize?client_id=1496608248814374923&permission";
-
-const SECTION_META = {
-  dashboard: {
-    title: "Dashboard",
-    subtitle: "Overview of your bot and servers"
-  },
-  invite: {
-    title: "Invite Bot",
-    subtitle: "Add the bot to your Discord server"
-  },
-  terms: {
-    title: "Terms of Use",
-    subtitle: "Rules and usage policies"
-  },
-  help: {
-    title: "Help",
-    subtitle: "Quick answers and setup guidance"
-  }
-};
-
-let countersAnimated = false;
+const THEME_KEY = "zllawi-ui-theme";
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-US").format(value);
 }
 
-function animateCounters() {
-  const counters = document.querySelectorAll(".stat-value[data-count]");
+function animateStatNumbers() {
+  const numberNodes = document.querySelectorAll(".stat-num[data-count]");
 
-  counters.forEach((counter) => {
-    const endValue = Number(counter.dataset.count || 0);
-    const durationMs = 850;
-    const startTime = performance.now();
+  numberNodes.forEach((node) => {
+    const targetValue = Number(node.dataset.count || 0);
+    const duration = 850;
+    const start = performance.now();
 
-    function tick(now) {
-      const progress = Math.min((now - startTime) / durationMs, 1);
-      const current = Math.round(endValue * progress);
-      counter.textContent = formatNumber(current);
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const current = Math.round(targetValue * progress);
+      node.textContent = formatNumber(current);
 
       if (progress < 1) {
-        requestAnimationFrame(tick);
+        requestAnimationFrame(step);
       }
     }
 
-    requestAnimationFrame(tick);
+    requestAnimationFrame(step);
   });
-}
-
-function initInvite() {
-  const inviteBtn = document.getElementById("inviteBtn");
-  const inviteHint = document.getElementById("inviteHint");
-
-  if (!inviteBtn || !inviteHint) {
-    return;
-  }
-
-  inviteBtn.href = INVITE_URL;
-  inviteHint.textContent = "رابط الدعوة جاهز. اضغط الزر لإضافة البوت.";
-}
-
-function initSections() {
-  const navLinks = Array.from(
-    document.querySelectorAll(".nav-link[data-target]")
-  );
-  const slidePills = Array.from(
-    document.querySelectorAll(".slide-pill[data-target]")
-  );
-  const views = Array.from(document.querySelectorAll(".view"));
-
-  const titleEl = document.getElementById("sectionTitle");
-  const subtitleEl = document.getElementById("sectionSubtitle");
-
-  function setActiveSection(sectionId) {
-    views.forEach((view) => {
-      view.classList.toggle("is-active", view.id === sectionId);
-    });
-
-    navLinks.forEach((button) => {
-      button.classList.toggle("is-active", button.dataset.target === sectionId);
-    });
-
-    slidePills.forEach((button) => {
-      const isActive = button.dataset.target === sectionId;
-      button.classList.toggle("is-active", isActive);
-
-      if (isActive) {
-        button.scrollIntoView({
-          behavior: "smooth",
-          block: "nearest",
-          inline: "center"
-        });
-      }
-    });
-
-    const meta = SECTION_META[sectionId];
-
-    if (meta && titleEl && subtitleEl) {
-      titleEl.textContent = meta.title;
-      subtitleEl.textContent = meta.subtitle;
-    }
-
-    if (sectionId === "dashboard" && !countersAnimated) {
-      animateCounters();
-      countersAnimated = true;
-    }
-  }
-
-  const controlButtons = [...navLinks, ...slidePills];
-
-  controlButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      setActiveSection(button.dataset.target);
-    });
-  });
-
-  const initialHash = window.location.hash.replace("#", "");
-  const hasSection = views.some((view) => view.id === initialHash);
-  setActiveSection(hasSection ? initialHash : "dashboard");
 }
 
 function initThemeToggle() {
-  const toggleButton = document.getElementById("themeToggle");
+  const themeBtn = document.getElementById("themeToggle");
 
-  if (!toggleButton) {
+  if (!themeBtn) {
     return;
   }
 
   function updateIcon() {
-    toggleButton.textContent = document.body.classList.contains("theme-light")
+    themeBtn.textContent = document.body.classList.contains("theme-dark")
       ? "☀"
       : "☾";
   }
 
   try {
-    const savedTheme = window.localStorage.getItem("zllawi-theme");
+    const saved = window.localStorage.getItem(THEME_KEY);
 
-    if (savedTheme === "light") {
-      document.body.classList.add("theme-light");
+    if (saved === "dark") {
+      document.body.classList.add("theme-dark");
     }
   } catch {
-    // Ignore localStorage errors.
+    // Ignore localStorage restrictions.
   }
 
   updateIcon();
 
-  toggleButton.addEventListener("click", () => {
-    document.body.classList.toggle("theme-light");
+  themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("theme-dark");
     updateIcon();
 
     try {
-      const isLight = document.body.classList.contains("theme-light");
-      window.localStorage.setItem("zllawi-theme", isLight ? "light" : "dark");
+      const mode = document.body.classList.contains("theme-dark")
+        ? "dark"
+        : "light";
+      window.localStorage.setItem(THEME_KEY, mode);
     } catch {
-      // Ignore localStorage errors.
+      // Ignore localStorage restrictions.
     }
   });
 }
 
-initInvite();
-initSections();
+function initLoginForm() {
+  const form = document.querySelector(".login-form");
+
+  if (!form) {
+    return;
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+}
+
+animateStatNumbers();
 initThemeToggle();
+initLoginForm();

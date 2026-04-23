@@ -3,269 +3,206 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zllawi be honest | Dashboard</title>
+    <title>Zllawi be honest | تسجيل الدخول ولوحة التحكم</title>
     <meta
       name="description"
-      content="واجهة تفاعلية لبوت Zllawi be honest بتصميم داشبورد مشابه للصورة المرجعية."
+      content="واجهة عربية عصرية لبوت Zllawi be honest مع تسجيل دخول ديسكورد ومعاينة لوحة تحكم."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="noise-layer" aria-hidden="true"></div>
+    <div class="bg-layer" aria-hidden="true"></div>
 
-    <div class="app-shell">
-      <aside class="sidebar">
-        <div class="brand">
-          <div class="brand-mark">❤</div>
+    <header class="top-nav">
+      <div class="shell nav-inner">
+        <div class="brand-wrap">
+          <span class="brand-icon" aria-hidden="true">💬</span>
           <div>
-            <h2>Zllawi</h2>
-            <p>Be Honest</p>
+            <h1 class="brand-title">Zllawi be honest</h1>
+            <p class="brand-subtitle">Discord Bot Dashboard</p>
           </div>
         </div>
 
-        <div class="sidebar-scroll">
-          <section class="nav-group">
-            <p class="group-title">MAIN</p>
-            <button type="button" class="nav-link is-active" data-target="dashboard">
-              Dashboard
-            </button>
-            <button type="button" class="nav-link" data-target="invite">
-              Invite Bot
-            </button>
-          </section>
-
-          <section class="nav-group">
-            <p class="group-title">MANAGE</p>
-            <button type="button" class="nav-link" data-target="terms">
-              شروط الاستخدام
-            </button>
-            <button type="button" class="nav-link" data-target="help">Help</button>
-          </section>
-        </div>
-
-        <footer class="sidebar-footer">
-          <p class="footer-tag">zllawi#0001</p>
-          <span class="footer-role">Owner</span>
-        </footer>
-      </aside>
-
-      <section class="content-shell">
-        <header class="topbar">
-          <div>
-            <h1 id="sectionTitle">Dashboard</h1>
-            <p id="sectionSubtitle">Overview of your bot and servers</p>
-          </div>
-
-          <div class="top-actions">
-            <button id="themeToggle" type="button" class="icon-btn" aria-label="Toggle theme">
-              ☾
-            </button>
-            <button type="button" class="icon-btn" aria-label="Notifications">🔔</button>
-            <span class="avatar">Z</span>
-          </div>
-        </header>
-
-        <nav class="section-slider" aria-label="Top Sections">
-          <button type="button" class="slide-pill is-active" data-target="dashboard">
-            Dashboard
+        <div class="nav-tools">
+          <button
+            id="themeToggle"
+            type="button"
+            class="icon-btn"
+            aria-label="تبديل الثيم"
+          >
+            ☾
           </button>
-          <button type="button" class="slide-pill" data-target="invite">Invite</button>
-          <button type="button" class="slide-pill" data-target="terms">Terms</button>
-          <button type="button" class="slide-pill" data-target="help">Help</button>
-        </nav>
+          <button type="button" class="icon-btn" aria-label="الحساب">👤</button>
+        </div>
+      </div>
+    </header>
 
-        <main class="views">
-          <section id="dashboard" class="view is-active" aria-label="Dashboard View">
-            <div class="stat-grid">
-              <article class="card stat-card">
-                <p>Total Servers</p>
-                <h3 class="stat-value" data-count="12">12</h3>
-                <span class="delta up">+2 this week</span>
-              </article>
-              <article class="card stat-card">
-                <p>Total Users</p>
-                <h3 class="stat-value" data-count="1248">1,248</h3>
-                <span class="delta up">+156 this week</span>
-              </article>
-              <article class="card stat-card">
-                <p>Total Confessions</p>
-                <h3 class="stat-value" data-count="532">532</h3>
-                <span class="delta up">+73 this week</span>
-              </article>
-              <article class="card stat-card">
-                <p>Online Status</p>
-                <h3 class="status-on">Online</h3>
-                <span class="delta neutral">All systems operational</span>
-              </article>
+    <main class="main-content">
+      <section class="shell hero-login" aria-label="تسجيل الدخول">
+        <div class="hero-grid">
+          <article class="hero-copy card-surface">
+            <p class="eyebrow">لوحة إدارة البوت</p>
+            <h2>تسجيل الدخول إلى Zllawi be honest</h2>
+            <p class="hero-text">
+              قم بتسجيل الدخول لإدارة البوت والوصول إلى لوحة التحكم
+            </p>
+
+            <div class="feature-row">
+              <span class="feature-chip">Discord OAuth</span>
+              <span class="feature-chip">MongoDB Ready</span>
+              <span class="feature-chip">واجهة عربية RTL</span>
             </div>
+          </article>
 
-            <div class="dashboard-grid">
-              <article class="card chart-card">
-                <div class="card-head">
-                  <h2>Confessions Overview</h2>
-                  <span class="badge">This Week</span>
-                </div>
-                <svg viewBox="0 0 640 240" class="line-chart" role="img" aria-label="Confessions chart">
-                  <defs>
-                    <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="rgba(126,103,255,0.38)" />
-                      <stop offset="100%" stop-color="rgba(126,103,255,0.02)" />
-                    </linearGradient>
-                  </defs>
-                  <polyline points="40,190 120,150 200,90 280,135 360,165 440,112 520,82 600,58" />
-                  <polygon points="40,190 120,150 200,90 280,135 360,165 440,112 520,82 600,58 600,220 40,220" />
-                  <g class="points">
-                    <circle cx="40" cy="190" r="4"></circle>
-                    <circle cx="120" cy="150" r="4"></circle>
-                    <circle cx="200" cy="90" r="4"></circle>
-                    <circle cx="280" cy="135" r="4"></circle>
-                    <circle cx="360" cy="165" r="4"></circle>
-                    <circle cx="440" cy="112" r="4"></circle>
-                    <circle cx="520" cy="82" r="4"></circle>
-                    <circle cx="600" cy="58" r="4"></circle>
-                  </g>
-                </svg>
-              </article>
+          <article class="login-card card-surface">
+            <h3>دخول سريع</h3>
+            <p class="muted-text">
+              سجل دخولك عبر ديسكورد أو استخدم الحقول الاختيارية أدناه.
+            </p>
 
-              <article class="card servers-card">
-                <div class="card-head">
-                  <h2>Your Servers</h2>
-                  <button type="button" class="text-btn">View All</button>
-                </div>
-                <ul class="server-list">
-                  <li>
-                    <span class="server-icon">Z</span>
-                    <div>
-                      <h4>Zllawi Community</h4>
-                      <p>245 members • 12 confessions</p>
-                    </div>
-                    <span class="server-status online">Online</span>
-                  </li>
-                  <li>
-                    <span class="server-icon">A</span>
-                    <div>
-                      <h4>Anime Paradise</h4>
-                      <p>892 members • 86 confessions</p>
-                    </div>
-                    <span class="server-status online">Online</span>
-                  </li>
-                  <li>
-                    <span class="server-icon">C</span>
-                    <div>
-                      <h4>Chill Zone</h4>
-                      <p>156 members • 7 confessions</p>
-                    </div>
-                    <span class="server-status idle">Idle</span>
-                  </li>
-                  <li>
-                    <span class="server-icon">G</span>
-                    <div>
-                      <h4>Gaming World</h4>
-                      <p>312 members • 23 confessions</p>
-                    </div>
-                    <span class="server-status online">Online</span>
-                  </li>
-                </ul>
-              </article>
+            <a
+              id="discordLoginBtn"
+              class="discord-btn"
+              href="https://discord.com/oauth2/authorize?client_id=1496608248814374923&permission"
+              target="_blank"
+              rel="noopener noreferrer"
+              >تسجيل الدخول عبر Discord</a
+            >
 
-              <article class="card recent-card">
-                <div class="card-head">
-                  <h2>Recent Confessions</h2>
-                  <button type="button" class="text-btn">View All</button>
-                </div>
-                <ul class="confession-list">
-                  <li>
-                    <div>
-                      <strong>#general</strong>
-                      <p>رسالة مجهولة جديدة وصلت للقناة</p>
-                    </div>
-                    <span class="tag approved">Approved</span>
-                  </li>
-                  <li>
-                    <div>
-                      <strong>#love</strong>
-                      <p>أعترف لشخص مميز في حياتي 💜</p>
-                    </div>
-                    <span class="tag approved">Approved</span>
-                  </li>
-                  <li>
-                    <div>
-                      <strong>#random</strong>
-                      <p>أحتاج رأيكم في موضوع مهم</p>
-                    </div>
-                    <span class="tag pending">Pending</span>
-                  </li>
-                </ul>
-              </article>
+            <form class="login-form" action="#" method="post">
+              <label for="emailInput">البريد الإلكتروني (اختياري)</label>
+              <input
+                id="emailInput"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+              />
 
-              <article class="card actions-card">
-                <h2>Quick Actions</h2>
-                <div class="actions-grid">
-                  <button type="button" class="action-btn primary">Send Announcement</button>
-                  <button type="button" class="action-btn">Create Category</button>
-                  <button type="button" class="action-btn">View Logs</button>
-                  <button type="button" class="action-btn">Manage Commands</button>
-                  <button type="button" class="action-btn">Server Settings</button>
-                  <button type="button" class="action-btn">Auto Response</button>
-                </div>
-              </article>
-            </div>
-          </section>
+              <label for="passwordInput">كلمة المرور (اختياري)</label>
+              <input
+                id="passwordInput"
+                name="password"
+                type="password"
+                placeholder="********"
+              />
 
-          <section id="invite" class="view" aria-label="Invite View">
-            <article class="card large-card">
-              <h2>دعوة البوت</h2>
-              <p>
-                أضف البوت إلى سيرفرك مباشرة من الزر التالي. بعد الدعوة تأكد من منح
-                الصلاحيات المطلوبة لتعمل الأوامر بشكل طبيعي.
-              </p>
-              <a id="inviteBtn" class="invite-main-btn" href="#" target="_blank" rel="noopener noreferrer">
-                دعوة البوت إلى سيرفرك
-              </a>
-              <p id="inviteHint" class="invite-hint"></p>
-            </article>
-          </section>
+              <button type="submit" class="secondary-btn">تسجيل دخول تجريبي</button>
+            </form>
 
-          <section id="terms" class="view" aria-label="Terms View">
-            <article class="card large-card">
-              <h2>شروط الاستخدام</h2>
-              <ul class="terms-list">
-                <li>يمنع استخدام البوت للإساءة أو التهديد أو نشر أي محتوى مؤذي.</li>
-                <li>لا تشارك بيانات حساسة أو معلومات شخصية تخصك أو تخص الآخرين.</li>
-                <li>إدارة السيرفر مسؤولة عن الإشراف على المحتوى المنشور عبر البوت.</li>
-                <li>قد يتم تحديث الشروط أو إيقاف الخدمة في حال إساءة الاستخدام.</li>
-                <li>استخدامك للبوت يعني موافقتك على جميع البنود المذكورة.</li>
-              </ul>
-              <p class="updated-at">آخر تحديث: 23 أبريل 2026</p>
-            </article>
-          </section>
-
-          <section id="help" class="view" aria-label="Help View">
-            <article class="card large-card">
-              <h2>Help</h2>
-              <div class="help-grid">
-                <article class="help-item">
-                  <h3>كيف أضيف البوت؟</h3>
-                  <p>افتح قسم Invite واضغط زر الدعوة، ثم اختر السيرفر المناسب.</p>
-                </article>
-                <article class="help-item">
-                  <h3>كيف أبدأ الإعداد؟</h3>
-                  <p>استخدم <code>/setup</code> لتحديد قناة استقبال الرسائل المجهولة.</p>
-                </article>
-                <article class="help-item">
-                  <h3>كيف أغير اللغة؟</h3>
-                  <p>استخدم الأمر <code>/language</code> للتحويل بين العربية والإنجليزية.</p>
-                </article>
-                <article class="help-item">
-                  <h3>كيف أغير اللون؟</h3>
-                  <p>استخدم <code>/color</code> لتغيير ثيم ألوان الرسائل والبانل.</p>
-                </article>
-              </div>
-            </article>
-          </section>
-        </main>
+            <p class="secure-note">الوصول آمن ويتم عبر قناة مشفرة.</p>
+            <p class="mongo-note">
+              ملاحظة: بيانات المستخدمين والسيرفرات سيتم ربطها لاحقًا بقاعدة
+              بيانات MongoDB.
+            </p>
+          </article>
+        </div>
       </section>
-    </div>
+
+      <section class="shell dashboard-preview" aria-label="معاينة لوحة التحكم">
+        <div class="section-head">
+          <h2>معاينة لوحة التحكم</h2>
+          <p>واجهة عملية وبسيطة لإدارة البوت على مختلف الأجهزة.</p>
+        </div>
+
+        <div class="preview-grid">
+          <div class="stats-grid">
+            <article class="stat-card card-surface">
+              <p>إجمالي السيرفرات</p>
+              <h3 class="stat-num" data-count="12">12</h3>
+            </article>
+
+            <article class="stat-card card-surface">
+              <p>إجمالي المستخدمين</p>
+              <h3 class="stat-num" data-count="1284">1,284</h3>
+            </article>
+
+            <article class="stat-card card-surface">
+              <p>عدد الرسائل المرسلة</p>
+              <h3 class="stat-num" data-count="532">532</h3>
+            </article>
+
+            <article class="stat-card card-surface">
+              <p>حالة البوت</p>
+              <h3 class="status-online">متصل</h3>
+            </article>
+          </div>
+
+          <article class="chart-card card-surface">
+            <div class="card-head">
+              <h3>النشاط الأسبوعي</h3>
+              <span class="small-badge">آخر 7 أيام</span>
+            </div>
+
+            <svg
+              class="activity-chart"
+              viewBox="0 0 700 260"
+              role="img"
+              aria-label="مخطط النشاط الأسبوعي"
+            >
+              <g class="grid-lines">
+                <line x1="50" y1="40" x2="650" y2="40"></line>
+                <line x1="50" y1="90" x2="650" y2="90"></line>
+                <line x1="50" y1="140" x2="650" y2="140"></line>
+                <line x1="50" y1="190" x2="650" y2="190"></line>
+                <line x1="50" y1="240" x2="650" y2="240"></line>
+              </g>
+              <polyline
+                points="50,190 140,165 230,120 320,145 410,130 500,95 590,80"
+              ></polyline>
+              <g class="chart-points">
+                <circle cx="50" cy="190" r="5"></circle>
+                <circle cx="140" cy="165" r="5"></circle>
+                <circle cx="230" cy="120" r="5"></circle>
+                <circle cx="320" cy="145" r="5"></circle>
+                <circle cx="410" cy="130" r="5"></circle>
+                <circle cx="500" cy="95" r="5"></circle>
+                <circle cx="590" cy="80" r="5"></circle>
+              </g>
+              <g class="chart-labels">
+                <text x="50" y="256">السبت</text>
+                <text x="140" y="256">الأحد</text>
+                <text x="230" y="256">الإثنين</text>
+                <text x="320" y="256">الثلاثاء</text>
+                <text x="410" y="256">الأربعاء</text>
+                <text x="500" y="256">الخميس</text>
+                <text x="590" y="256">الجمعة</text>
+              </g>
+            </svg>
+          </article>
+
+          <article class="servers-card card-surface">
+            <div class="card-head">
+              <h3>السيرفرات المتصلة</h3>
+              <button type="button" class="text-btn">عرض الكل</button>
+            </div>
+
+            <ul class="server-list">
+              <li>
+                <div>
+                  <h4>Zllawi Community</h4>
+                  <p>245 عضو</p>
+                </div>
+                <span class="online-dot">متصل</span>
+              </li>
+              <li>
+                <div>
+                  <h4>Anime Hub</h4>
+                  <p>892 عضو</p>
+                </div>
+                <span class="online-dot">متصل</span>
+              </li>
+              <li>
+                <div>
+                  <h4>Chill Zone</h4>
+                  <p>156 عضو</p>
+                </div>
+                <span class="online-dot">متصل</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
 
     <script src="./app.js"></script>
   </body>
