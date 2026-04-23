@@ -1,0 +1,163 @@
+:root {
+  --bg: #f4f7fb;
+  --ink: #172127;
+  --muted: #4b6171;
+  --card: #ffffff;
+  --line: #d7e1ea;
+  --primary: #0b8f6d;
+  --primary-strong: #06654d;
+  --shadow: 0 16px 44px rgba(11, 29, 40, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Cairo", "Noto Kufi Arabic", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(165deg, #ecf5f7 0%, var(--bg) 55%, #eef2fa 100%);
+  overflow-x: hidden;
+}
+
+.bg-glow {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 999px;
+  filter: blur(32px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bg-glow-a {
+  top: -110px;
+  right: -120px;
+  background: radial-gradient(circle, #8ff2c6 0%, transparent 65%);
+}
+
+.bg-glow-b {
+  bottom: -150px;
+  left: -140px;
+  background: radial-gradient(circle, #8bc6ff 0%, transparent 65%);
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 56px 18px 42px;
+  display: grid;
+  gap: 20px;
+}
+
+.hero {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 28px;
+  backdrop-filter: blur(8px);
+  box-shadow: var(--shadow);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--primary-strong);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 0.86rem;
+}
+
+h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.25;
+}
+
+.lead {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.9;
+  max-width: 720px;
+}
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.panel h2 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.panel-text {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.invite-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 12px 22px;
+  min-height: 48px;
+  background: linear-gradient(140deg, var(--primary), #11b087);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.invite-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(8, 110, 85, 0.24);
+  filter: saturate(1.1);
+}
+
+.invite-btn.disabled {
+  background: #9aaab5;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+.hint {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.terms-list {
+  margin: 0;
+  padding-right: 18px;
+  line-height: 1.95;
+}
+
+.updated-at {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-top: 34px;
+  }
+
+  .hero,
+  .panel {
+    border-radius: 16px;
+    padding: 18px;
+  }
+
+  .invite-btn {
+    width: 100%;
+  }
+}
