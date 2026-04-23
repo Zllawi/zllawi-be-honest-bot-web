@@ -6,43 +6,46 @@
     <title>Zllawi be honest | واجهة البوت</title>
     <meta
       name="description"
-      content="واجهة احترافية لبوت Zllawi be honest مع بانر كبير، شروط استخدام، وقسم Help."
+      content="واجهة احترافية لبوت Zllawi be honest مع بانر عريض، شروط استخدام، وقسم Help."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="bg-grid" aria-hidden="true"></div>
-    <div class="orb orb-a" aria-hidden="true"></div>
-    <div class="orb orb-b" aria-hidden="true"></div>
+    <div class="texture" aria-hidden="true"></div>
+
+    <header class="wide-banner">
+      <img src="./assets/banner.jpg" alt="صورة بانر لبوت ديسكورد" />
+      <div class="banner-overlay">
+        <p class="kicker">DISCORD ANONYMOUS BOT</p>
+        <h1>واجهة بوت Zllawi be honest</h1>
+        <p>
+          إدارة رسائل مجهولة داخل السيرفر بواجهة واضحة وسريعة مع زر دعوة مباشر.
+        </p>
+        <div class="banner-actions">
+          <a
+            id="inviteBtn"
+            class="invite-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            >دعوة البوت الآن</a
+          >
+          <a class="ghost-btn" href="#help">Help</a>
+        </div>
+        <p id="inviteHint" class="hint"></p>
+      </div>
+    </header>
 
     <main class="layout">
-      <header class="hero">
-        <div class="hero-content">
-          <p class="hero-kicker">DISCORD ANONYMOUS BOT</p>
-          <h1>واجهة بوت Zllawi be honest</h1>
-          <p class="hero-text">
-            أرسل رسائل مجهولة بطريقة منظمة، مع مظهر حديث وسريع، وزر دعوة مباشر
-            للبوت إلى سيرفرك.
-          </p>
-          <div class="hero-actions">
-            <a
-              id="inviteBtn"
-              class="invite-btn"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              >دعوة البوت الآن</a
-            >
-            <a class="ghost-btn" href="#help">الذهاب إلى Help</a>
-          </div>
-          <p id="inviteHint" class="hint"></p>
-        </div>
-        <figure class="hero-banner">
-          <img src="./assets/banner.jpg" alt="صورة بانر لبوت ديسكورد" />
-        </figure>
-      </header>
+      <section class="card intro">
+        <h2>عن البوت</h2>
+        <p>
+          هذا البوت يساعد الأعضاء على إرسال رسائل مجهولة بطريقة منظمة داخل
+          ديسكورد، مع تحكم كامل للإدارة عبر أوامر السلاش.
+        </p>
+      </section>
 
-      <section class="panel terms" aria-labelledby="terms-title">
+      <section class="card terms" aria-labelledby="terms-title">
         <h2 id="terms-title">شروط الاستخدام</h2>
         <ul class="terms-list">
           <li>ممنوع استخدام البوت للإساءة أو التهديد أو الابتزاز أو التشهير.</li>
@@ -54,35 +57,35 @@
         <p class="updated-at">آخر تحديث: 23 أبريل 2026</p>
       </section>
 
-      <section id="help" class="panel help" aria-labelledby="help-title">
+      <section id="help" class="card help" aria-labelledby="help-title">
         <h2 id="help-title">Help</h2>
         <div class="help-grid">
           <article class="help-card">
             <h3>كيف أضيف البوت؟</h3>
             <p>
-              اضغط على زر "دعوة البوت الآن"، اختر السيرفر، ثم وافق على الصلاحيات
+              اضغط "دعوة البوت الآن"، اختر السيرفر، ثم وافق على الصلاحيات
               المطلوبة.
             </p>
           </article>
           <article class="help-card">
             <h3>كيف أبدأ الإعداد؟</h3>
             <p>
-              بعد الإضافة استخدم أمر <code>/setup</code> لاختيار قناة الرسائل
-              المجهولة داخل السيرفر.
+              استخدم أمر <code>/setup</code> لتحديد قناة استقبال الرسائل
+              المجهولة.
             </p>
           </article>
           <article class="help-card">
-            <h3>من يرى المرسل؟</h3>
+            <h3>كيف أغير اللغة أو اللون؟</h3>
             <p>
-              الرسائل تظهر مجهولة للجميع، ويمكن تفعيل قناة سجل خاصة عبر
-              <code>/log</code> للمالك فقط.
+              استخدم <code>/language</code> لتغيير اللغة و<code>/color</code>
+              لتعديل الثيم.
             </p>
           </article>
           <article class="help-card">
             <h3>حل المشاكل</h3>
             <p>
-              إذا لم يعمل البوت، تأكد أن لديه الصلاحيات اللازمة وأن أوامر
-              السلاش تم نشرها بنجاح.
+              تأكد أن البوت يملك صلاحيات كافية، ثم أعد نشر الأوامر عبر
+              <code>npm run deploy</code>.
             </p>
           </article>
         </div>
