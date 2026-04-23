@@ -1,29 +1,25 @@
 # Zllawi be honest Bot Web
 
-واجهة ويب بسيطة لبوت Discord تحتوي على:
+واجهة ويب محسنة لبوت Discord وتشمل:
 
-- شروط استخدام باللغة العربية
+- بانر كبير باستخدام صورة مخصصة
 - زر دعوة مباشر للبوت
+- قسم شروط الاستخدام
+- قسم `Help` للمساعدة السريعة
 
 ## الملفات
 
-- `index.html` الصفحة الرئيسية
-- `styles.css` التنسيق
-- `app.js` إعداد رابط الدعوة
+- `index.html` الصفحة الأساسية
+- `styles.css` تصميم الواجهة
+- `app.js` تفعيل رابط الدعوة
+- `assets/banner.jpg` صورة البانر
 
-## التفعيل
+## رابط الدعوة المعتمد
 
-1. افتح ملف `app.js`.
-2. ضع `Client ID` الحقيقي مكان:
+تم تثبيت الرابط التالي داخل الواجهة:
 
-```js
-clientId: "PUT_YOUR_DISCORD_CLIENT_ID_HERE";
-```
+`https://discord.com/oauth2/authorize?client_id=1496608248814374923&permission`
 
-3. ارفع الملفات على GitHub Pages أو أي استضافة static.
+## النشر
 
-## رابط الدعوة
-
-يتم توليده تلقائيًا بصيغة:
-
-`https://discord.com/api/oauth2/authorize?client_id=...&permissions=8&scope=bot%20applications.commands`
+يمكن نشر المشروع مباشرة عبر GitHub Pages أو أي استضافة Static.

@@ -6,50 +6,86 @@
     <title>Zllawi be honest | واجهة البوت</title>
     <meta
       name="description"
-      content="واجهة ويب لبوت Zllawi be honest تشمل شروط الاستخدام وزر دعوة مباشر للبوت."
+      content="واجهة احترافية لبوت Zllawi be honest مع بانر كبير، شروط استخدام، وقسم Help."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="bg-glow bg-glow-a" aria-hidden="true"></div>
-    <div class="bg-glow bg-glow-b" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="orb orb-a" aria-hidden="true"></div>
+    <div class="orb orb-b" aria-hidden="true"></div>
 
-    <main class="container">
+    <main class="layout">
       <header class="hero">
-        <p class="eyebrow">Discord Anonymous Bot</p>
-        <h1>واجهة بوت Zllawi be honest</h1>
-        <p class="lead">
-          منصة بسيطة وسريعة لعرض شروط الاستخدام وإرسال دعوة البوت إلى سيرفرك.
-        </p>
+        <div class="hero-content">
+          <p class="hero-kicker">DISCORD ANONYMOUS BOT</p>
+          <h1>واجهة بوت Zllawi be honest</h1>
+          <p class="hero-text">
+            أرسل رسائل مجهولة بطريقة منظمة، مع مظهر حديث وسريع، وزر دعوة مباشر
+            للبوت إلى سيرفرك.
+          </p>
+          <div class="hero-actions">
+            <a
+              id="inviteBtn"
+              class="invite-btn"
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              >دعوة البوت الآن</a
+            >
+            <a class="ghost-btn" href="#help">الذهاب إلى Help</a>
+          </div>
+          <p id="inviteHint" class="hint"></p>
+        </div>
+        <figure class="hero-banner">
+          <img src="./assets/banner.jpg" alt="صورة بانر لبوت ديسكورد" />
+        </figure>
       </header>
 
-      <section class="panel invite-panel" aria-labelledby="invite-title">
-        <h2 id="invite-title">دعوة البوت</h2>
-        <p class="panel-text">
-          اضغط الزر التالي لإضافة البوت مباشرة. سيتم توجيهك إلى صفحة Discord
-          الرسمية.
-        </p>
-        <a
-          id="inviteBtn"
-          class="invite-btn"
-          href="#"
-          target="_blank"
-          rel="noopener noreferrer"
-          >دعوة البوت إلى سيرفرك</a
-        >
-        <p id="inviteHint" class="hint"></p>
-      </section>
-
-      <section class="panel terms-panel" aria-labelledby="terms-title">
+      <section class="panel terms" aria-labelledby="terms-title">
         <h2 id="terms-title">شروط الاستخدام</h2>
         <ul class="terms-list">
-          <li>يمنع استخدام البوت للإساءة أو التهديد أو نشر خطاب الكراهية.</li>
-          <li>لا تشارك أي بيانات حساسة أو معلومات شخصية عالية الخصوصية.</li>
-          <li>إدارة السيرفر مسؤولة عن الإشراف على المحتوى الذي ينشر عبر البوت.</li>
-          <li>قد يتم إيقاف الخدمة أو تعديلها في أي وقت بهدف تحسين الجودة والأمان.</li>
-          <li>استخدامك للبوت يعني موافقتك على هذه الشروط.</li>
+          <li>ممنوع استخدام البوت للإساءة أو التهديد أو الابتزاز أو التشهير.</li>
+          <li>لا تنشر معلومات شخصية حساسة أو بيانات خاصة بالآخرين.</li>
+          <li>مالك السيرفر مسؤول عن ضبط القواعد ومراقبة استخدام البوت.</li>
+          <li>قد يتم تحديث الشروط أو إيقاف الخدمة عند وجود إساءة استخدام.</li>
+          <li>استمرارك في الاستخدام يعني موافقتك على هذه الشروط.</li>
         </ul>
         <p class="updated-at">آخر تحديث: 23 أبريل 2026</p>
+      </section>
+
+      <section id="help" class="panel help" aria-labelledby="help-title">
+        <h2 id="help-title">Help</h2>
+        <div class="help-grid">
+          <article class="help-card">
+            <h3>كيف أضيف البوت؟</h3>
+            <p>
+              اضغط على زر "دعوة البوت الآن"، اختر السيرفر، ثم وافق على الصلاحيات
+              المطلوبة.
+            </p>
+          </article>
+          <article class="help-card">
+            <h3>كيف أبدأ الإعداد؟</h3>
+            <p>
+              بعد الإضافة استخدم أمر <code>/setup</code> لاختيار قناة الرسائل
+              المجهولة داخل السيرفر.
+            </p>
+          </article>
+          <article class="help-card">
+            <h3>من يرى المرسل؟</h3>
+            <p>
+              الرسائل تظهر مجهولة للجميع، ويمكن تفعيل قناة سجل خاصة عبر
+              <code>/log</code> للمالك فقط.
+            </p>
+          </article>
+          <article class="help-card">
+            <h3>حل المشاكل</h3>
+            <p>
+              إذا لم يعمل البوت، تأكد أن لديه الصلاحيات اللازمة وأن أوامر
+              السلاش تم نشرها بنجاح.
+            </p>
+          </article>
+        </div>
       </section>
     </main>
 
