@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Changa:wght@400;600;700;800&display=swap");
 
 :root {
-  --bg: #edf4fb;
-  --ink: #0f1c2b;
-  --muted: #445a6f;
+  --bg: #e7f0fb;
+  --ink: #0e1c2f;
+  --muted: #3d5877;
   --surface: #ffffff;
-  --line: #d5e2ef;
-  --main: #0a7f61;
-  --main-dark: #065c46;
-  --accent: #0e5eb5;
-  --overlay: rgba(6, 16, 26, 0.54);
+  --line: #d1e0f1;
+  --main: #1b68c9;
+  --main-dark: #124d97;
+  --accent: #2a86f3;
+  --overlay: rgba(8, 26, 54, 0.58);
   --shadow: 0 12px 34px rgba(8, 25, 42, 0.12);
 }
 
@@ -26,7 +26,7 @@ body {
   min-height: 100vh;
   color: var(--ink);
   font-family: "Changa", "Segoe UI", sans-serif;
-  background: linear-gradient(145deg, #e6effa 0%, var(--bg) 50%, #e8f3ee 100%);
+  background: linear-gradient(145deg, #dfeaf8 0%, var(--bg) 48%, #eaf4ff 100%);
   overflow-x: hidden;
 }
 
@@ -36,24 +36,81 @@ body {
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(circle at 10% 10%, rgba(70, 162, 248, 0.18), transparent 32%),
-    radial-gradient(circle at 90% 0%, rgba(51, 201, 157, 0.2), transparent 28%);
+    radial-gradient(circle at 10% 10%, rgba(58, 141, 240, 0.2), transparent 32%),
+    radial-gradient(circle at 92% 0%, rgba(94, 173, 255, 0.2), transparent 30%);
+}
+
+.top-slider {
+  position: sticky;
+  top: 8px;
+  z-index: 20;
+  width: min(1240px, 100% - 20px);
+  margin: 12px auto 8px;
+  animation: fade-up 420ms ease both;
+}
+
+.slider-track {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px;
+  border-radius: 14px;
+  border: 1px solid #bfd4ee;
+  background: rgba(246, 251, 255, 0.85);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(12, 33, 60, 0.1);
+  scrollbar-width: none;
+}
+
+.slider-track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-link {
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 999px;
+  padding: 9px 14px;
+  color: #235b94;
+  border: 1px solid #cee2f8;
+  background: #eef6ff;
+  font-weight: 700;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.slide-link:hover {
+  transform: translateY(-1px);
+  background: #e0efff;
+}
+
+.slide-link.is-active {
+  background: linear-gradient(130deg, var(--main), var(--accent));
+  border-color: transparent;
+  color: #ffffff;
+}
+
+.layout {
+  width: min(1240px, 100% - 20px);
+  margin: 6px auto 42px;
+  display: grid;
+  gap: 14px;
+}
+
+.home-section {
+  animation: fade-up 560ms ease both;
 }
 
 .wide-banner {
-  width: min(1240px, 100% - 20px);
-  margin: 18px auto 0;
   border-radius: 28px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 18px 46px rgba(6, 22, 37, 0.2);
-  animation: fade-up 550ms ease both;
+  box-shadow: 0 18px 46px rgba(6, 24, 49, 0.2);
 }
 
 .wide-banner img {
   width: 100%;
-  height: min(55vh, 460px);
-  min-height: 300px;
+  height: min(58vh, 500px);
+  min-height: 320px;
   object-fit: cover;
   display: block;
 }
@@ -61,12 +118,12 @@ body {
 .banner-overlay {
   position: absolute;
   inset: 0;
-  padding: clamp(18px, 4vw, 38px);
+  padding: clamp(18px, 4vw, 42px);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  color: #f4fbff;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 20%, var(--overlay) 100%);
+  color: #f2f8ff;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.03) 18%, var(--overlay) 100%);
 }
 
 .kicker {
@@ -74,7 +131,7 @@ body {
   font-size: 0.84rem;
   letter-spacing: 0.08em;
   font-weight: 700;
-  color: #b8ddff;
+  color: #b8dcff;
 }
 
 h1 {
@@ -87,7 +144,7 @@ h1 {
   margin: 0;
   max-width: 62ch;
   line-height: 1.8;
-  color: #dbe9f6;
+  color: #d8e9ff;
 }
 
 .banner-actions {
@@ -112,37 +169,30 @@ h1 {
 
 .invite-btn {
   color: #ffffff;
-  background: linear-gradient(140deg, var(--main), #12a97e);
-  box-shadow: 0 12px 24px rgba(4, 120, 90, 0.35);
+  background: linear-gradient(140deg, var(--main), #2c86f0);
+  box-shadow: 0 12px 24px rgba(25, 94, 181, 0.35);
 }
 
 .invite-btn:hover {
   transform: translateY(-1px);
-  background: linear-gradient(140deg, #09674f, #0e8666);
+  background: linear-gradient(140deg, var(--main-dark), #206fca);
 }
 
 .ghost-btn {
-  border: 1px solid rgba(198, 223, 251, 0.6);
-  color: #d5e8ff;
-  background: rgba(23, 44, 68, 0.35);
+  border: 1px solid rgba(198, 223, 251, 0.65);
+  color: #d9ecff;
+  background: rgba(16, 42, 72, 0.38);
 }
 
 .ghost-btn:hover {
   transform: translateY(-1px);
-  background: rgba(23, 44, 68, 0.52);
+  background: rgba(16, 42, 72, 0.55);
 }
 
 .hint {
   margin-top: 10px;
   font-size: 0.92rem;
-  color: #b7d2ea;
-}
-
-.layout {
-  width: min(1060px, 100% - 20px);
-  margin: 16px auto 42px;
-  display: grid;
-  gap: 14px;
+  color: #bed8f8;
 }
 
 .card {
@@ -186,9 +236,9 @@ h1 {
 
 .help-card {
   padding: 14px;
-  border: 1px solid #d4e3f3;
+  border: 1px solid #d7e4f5;
   border-radius: 14px;
-  background: linear-gradient(160deg, #f7fbff 0%, #f4fbf8 100%);
+  background: linear-gradient(160deg, #f6fbff 0%, #eef6ff 100%);
 }
 
 .help-card h3 {
@@ -218,9 +268,7 @@ code {
 
 @media (max-width: 760px) {
   .wide-banner {
-    width: calc(100% - 12px);
     border-radius: 16px;
-    margin-top: 8px;
   }
 
   .wide-banner img {

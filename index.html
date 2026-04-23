@@ -13,39 +13,49 @@
   <body>
     <div class="texture" aria-hidden="true"></div>
 
-    <header class="wide-banner">
-      <img src="./assets/banner.jpg" alt="صورة بانر لبوت ديسكورد" />
-      <div class="banner-overlay">
-        <p class="kicker">DISCORD ANONYMOUS BOT</p>
-        <h1>واجهة بوت Zllawi be honest</h1>
-        <p>
-          إدارة رسائل مجهولة داخل السيرفر بواجهة واضحة وسريعة مع زر دعوة مباشر.
-        </p>
-        <div class="banner-actions">
-          <a
-            id="inviteBtn"
-            class="invite-btn"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-            >دعوة البوت الآن</a
-          >
-          <a class="ghost-btn" href="#help">Help</a>
-        </div>
-        <p id="inviteHint" class="hint"></p>
+    <nav class="top-slider" aria-label="أقسام الواجهة">
+      <div class="slider-track">
+        <a
+          class="slide-link is-active"
+          href="#home"
+          data-section-link="home"
+          >الرئيسية</a
+        >
+        <a class="slide-link" href="#terms" data-section-link="terms"
+          >شروط الاستخدام</a
+        >
+        <a class="slide-link" href="#help" data-section-link="help">Help</a>
       </div>
-    </header>
+    </nav>
 
     <main class="layout">
-      <section class="card intro">
-        <h2>عن البوت</h2>
-        <p>
-          هذا البوت يساعد الأعضاء على إرسال رسائل مجهولة بطريقة منظمة داخل
-          ديسكورد، مع تحكم كامل للإدارة عبر أوامر السلاش.
-        </p>
+      <section id="home" class="home-section" aria-label="القسم الرئيسي">
+        <div class="wide-banner">
+          <img src="./assets/banner.jpg" alt="صورة بانر لبوت ديسكورد" />
+          <div class="banner-overlay">
+            <p class="kicker">DISCORD ANONYMOUS BOT</p>
+            <h1>واجهة بوت Zllawi be honest</h1>
+            <p>
+              إدارة رسائل مجهولة داخل السيرفر بواجهة واضحة وسريعة مع زر دعوة
+              مباشر.
+            </p>
+            <div class="banner-actions">
+              <a
+                id="inviteBtn"
+                class="invite-btn"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                >دعوة البوت الآن</a
+              >
+              <a class="ghost-btn" href="#help">Help</a>
+            </div>
+            <p id="inviteHint" class="hint"></p>
+          </div>
+        </div>
       </section>
 
-      <section class="card terms" aria-labelledby="terms-title">
+      <section id="terms" class="card terms" aria-labelledby="terms-title">
         <h2 id="terms-title">شروط الاستخدام</h2>
         <ul class="terms-list">
           <li>ممنوع استخدام البوت للإساءة أو التهديد أو الابتزاز أو التشهير.</li>
@@ -79,13 +89,6 @@
             <p>
               استخدم <code>/language</code> لتغيير اللغة و<code>/color</code>
               لتعديل الثيم.
-            </p>
-          </article>
-          <article class="help-card">
-            <h3>حل المشاكل</h3>
-            <p>
-              تأكد أن البوت يملك صلاحيات كافية، ثم أعد نشر الأوامر عبر
-              <code>npm run deploy</code>.
             </p>
           </article>
         </div>
