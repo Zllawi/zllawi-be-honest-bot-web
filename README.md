@@ -1,25 +1,76 @@
 # Zllawi be honest Bot Web
 
-واجهة ويب محسنة لبوت Discord وتشمل:
+واجهة عربية حديثة (RTL) لتسجيل الدخول ومعاينة لوحة تحكم البوت.
 
-- بانر كبير باستخدام صورة مخصصة
-- زر دعوة مباشر للبوت
-- قسم شروط الاستخدام
-- قسم `Help` للمساعدة السريعة
+## المميزات
 
-## الملفات
+- تصميم Full-width متجاوب للديسكتوب/تابلت/موبايل
+- تسجيل دخول Discord OAuth
+- تبديل ثيم Light / Dark
+- معاينة Dashboard بإحصائيات البوت
+- API مدمج يسحب القيم الحقيقية من Discord API
 
-- `index.html` الصفحة الأساسية
-- `styles.css` تصميم الواجهة
-- `app.js` تفعيل رابط الدعوة
-- `assets/banner.jpg` صورة البانر
+## القيم الحقيقية من Discord
 
-## رابط الدعوة المعتمد
+المشروع يوفر endpoint:
 
-تم تثبيت الرابط التالي داخل الواجهة:
+- `GET /api/stats`
 
-`https://discord.com/oauth2/authorize?client_id=1496608248814374923&permission`
+واجهة الويب تقرأ القيم من نفس الدومين تلقائيًا. إذا كانت الواجهة على دومين مختلف،
+يمكنك ضبطه عبر:
 
-## النشر
+```html
+<script>window.ZLLAWI_STATS_ENDPOINT = "https://your-api-domain.com/api/stats";</script>
+```
 
-يمكن نشر المشروع مباشرة عبر GitHub Pages أو أي استضافة Static.
+ويرجع:
+
+- `guilds` عدد السيرفرات الحقيقي للبوت
+- `users` مجموع الأعضاء عبر السيرفرات
+- `messagesSent` قيمة قابلة للتخصيص من `.env`
+- `botStatus` حالة البوت (`متصل` / `غير متصل`)
+
+## الإعداد
+
+1. تثبيت الحزم:
+
+```bash
+npm install
+```
+
+2. إنشاء ملف البيئة:
+
+```bash
+cp .env.example .env
+```
+
+على PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+3. عدّل `.env`:
+
+- `DISCORD_TOKEN` توكن البوت
+- `PORT` منفذ السيرفر
+- `CORS_ORIGIN` الدومين المسموح له بطلب `/api/stats` (أو `*`)
+- `DEFAULT_MESSAGES_SENT` قيمة افتراضية لعدد الرسائل
+
+4. تشغيل المشروع:
+
+```bash
+npm start
+```
+
+ثم افتح:
+
+- `http://localhost:3000`
+- صحة السيرفر: `http://localhost:3000/health`
+
+## الملفات المهمة
+
+- `server.js` سيرفر Express + Discord API stats
+- `index.html` واجهة الصفحة
+- `styles.css` التصميم
+- `app.js` منطق الواجهة وجلب الإحصائيات

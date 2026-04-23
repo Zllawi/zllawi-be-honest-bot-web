@@ -102,28 +102,54 @@
         <div class="section-head">
           <h2>معاينة لوحة التحكم</h2>
           <p>واجهة عملية وبسيطة لإدارة البوت على مختلف الأجهزة.</p>
+          <p id="statsSourceNote" class="stats-source-note">
+            جاري مزامنة القيم الحقيقية من Discord API...
+          </p>
         </div>
 
         <div class="preview-grid">
           <div class="stats-grid">
             <article class="stat-card card-surface">
               <p>إجمالي السيرفرات</p>
-              <h3 class="stat-num" data-count="12">12</h3>
+              <h3
+                id="statServers"
+                class="stat-num"
+                data-count="12"
+                data-default="12"
+              >
+                12
+              </h3>
             </article>
 
             <article class="stat-card card-surface">
               <p>إجمالي المستخدمين</p>
-              <h3 class="stat-num" data-count="1284">1,284</h3>
+              <h3
+                id="statUsers"
+                class="stat-num"
+                data-count="1284"
+                data-default="1284"
+              >
+                1,284
+              </h3>
             </article>
 
             <article class="stat-card card-surface">
               <p>عدد الرسائل المرسلة</p>
-              <h3 class="stat-num" data-count="532">532</h3>
+              <h3
+                id="statMessages"
+                class="stat-num"
+                data-count="532"
+                data-default="532"
+              >
+                532
+              </h3>
             </article>
 
             <article class="stat-card card-surface">
               <p>حالة البوت</p>
-              <h3 class="status-online">متصل</h3>
+              <h3 id="statStatus" class="status-online" data-default="متصل">
+                متصل
+              </h3>
             </article>
           </div>
 

@@ -285,6 +285,10 @@ body {
   color: var(--muted);
 }
 
+.stats-source-note {
+  font-size: 0.84rem;
+}
+
 .preview-grid {
   display: grid;
   gap: 12px;
@@ -318,6 +322,10 @@ body {
 
 .status-online {
   color: var(--online);
+}
+
+.status-offline {
+  color: #ef4f76;
 }
 
 .chart-card {
