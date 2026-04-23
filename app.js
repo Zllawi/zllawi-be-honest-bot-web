@@ -1,3 +1,53 @@
+const INVITE_URL =
+  "https://discord.com/oauth2/authorize?client_id=1496608248814374923&permission";
+
+const SECTION_META = {
+  dashboard: {
+    title: "Dashboard",
+    subtitle: "Overview of your bot and servers"
+  },
+  invite: {
+    title: "Invite Bot",
+    subtitle: "Add the bot to your Discord server"
+  },
+  terms: {
+    title: "Terms of Use",
+    subtitle: "Rules and usage policies"
+  },
+  help: {
+    title: "Help",
+    subtitle: "Quick answers and setup guidance"
+  }
+};
+
+let countersAnimated = false;
+
+function formatNumber(value) {
+  return new Intl.NumberFormat("en-US").format(value);
+}
+
+function animateCounters() {
+  const counters = document.querySelectorAll(".stat-value[data-count]");
+
+  counters.forEach((counter) => {
+    const endValue = Number(counter.dataset.count || 0);
+    const durationMs = 850;
+    const startTime = performance.now();
+
+    function tick(now) {
+      const progress = Math.min((now - startTime) / durationMs, 1);
+      const current = Math.round(endValue * progress);
+      counter.textContent = formatNumber(current);
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      }
+    }
+
+    requestAnimationFrame(tick);
+  });
+}
+
 function initInvite() {
   const inviteBtn = document.getElementById("inviteBtn");
   const inviteHint = document.getElementById("inviteHint");
@@ -6,63 +56,108 @@ function initInvite() {
     return;
   }
 
-  const inviteUrl =
-    "https://discord.com/oauth2/authorize?client_id=1496608248814374923&permission";
-
-  inviteBtn.href = inviteUrl;
-  inviteHint.textContent = "تم ضبط زر الدعوة بالرابط المحدد.";
+  inviteBtn.href = INVITE_URL;
+  inviteHint.textContent = "رابط الدعوة جاهز. اضغط الزر لإضافة البوت.";
 }
 
-function initSectionSlider() {
-  const links = Array.from(document.querySelectorAll("[data-section-link]"));
+function initSections() {
+  const navLinks = Array.from(
+    document.querySelectorAll(".nav-link[data-target]")
+  );
+  const slidePills = Array.from(
+    document.querySelectorAll(".slide-pill[data-target]")
+  );
+  const views = Array.from(document.querySelectorAll(".view"));
 
-  if (!links.length) {
-    return;
-  }
+  const titleEl = document.getElementById("sectionTitle");
+  const subtitleEl = document.getElementById("sectionSubtitle");
 
-  const sections = links
-    .map((link) => document.getElementById(link.dataset.sectionLink))
-    .filter(Boolean);
+  function setActiveSection(sectionId) {
+    views.forEach((view) => {
+      view.classList.toggle("is-active", view.id === sectionId);
+    });
 
-  function setActive(sectionId) {
-    links.forEach((link) => {
-      const isActive = link.dataset.sectionLink === sectionId;
-      link.classList.toggle("is-active", isActive);
+    navLinks.forEach((button) => {
+      button.classList.toggle("is-active", button.dataset.target === sectionId);
+    });
+
+    slidePills.forEach((button) => {
+      const isActive = button.dataset.target === sectionId;
+      button.classList.toggle("is-active", isActive);
 
       if (isActive) {
-        link.scrollIntoView({
+        button.scrollIntoView({
           behavior: "smooth",
           block: "nearest",
           inline: "center"
         });
       }
     });
+
+    const meta = SECTION_META[sectionId];
+
+    if (meta && titleEl && subtitleEl) {
+      titleEl.textContent = meta.title;
+      subtitleEl.textContent = meta.subtitle;
+    }
+
+    if (sectionId === "dashboard" && !countersAnimated) {
+      animateCounters();
+      countersAnimated = true;
+    }
   }
 
-  links.forEach((link) => {
-    link.addEventListener("click", () => {
-      setActive(link.dataset.sectionLink);
+  const controlButtons = [...navLinks, ...slidePills];
+
+  controlButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      setActiveSection(button.dataset.target);
     });
   });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      const visible = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+  const initialHash = window.location.hash.replace("#", "");
+  const hasSection = views.some((view) => view.id === initialHash);
+  setActiveSection(hasSection ? initialHash : "dashboard");
+}
 
-      if (visible && visible.target.id) {
-        setActive(visible.target.id);
-      }
-    },
-    {
-      threshold: [0.25, 0.5, 0.75],
-      rootMargin: "-35% 0px -45% 0px"
+function initThemeToggle() {
+  const toggleButton = document.getElementById("themeToggle");
+
+  if (!toggleButton) {
+    return;
+  }
+
+  function updateIcon() {
+    toggleButton.textContent = document.body.classList.contains("theme-light")
+      ? "☀"
+      : "☾";
+  }
+
+  try {
+    const savedTheme = window.localStorage.getItem("zllawi-theme");
+
+    if (savedTheme === "light") {
+      document.body.classList.add("theme-light");
     }
-  );
+  } catch {
+    // Ignore localStorage errors.
+  }
 
-  sections.forEach((section) => observer.observe(section));
+  updateIcon();
+
+  toggleButton.addEventListener("click", () => {
+    document.body.classList.toggle("theme-light");
+    updateIcon();
+
+    try {
+      const isLight = document.body.classList.contains("theme-light");
+      window.localStorage.setItem("zllawi-theme", isLight ? "light" : "dark");
+    } catch {
+      // Ignore localStorage errors.
+    }
+  });
 }
 
 initInvite();
-initSectionSlider();
+initSections();
+initThemeToggle();

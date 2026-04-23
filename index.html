@@ -3,97 +3,269 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zllawi be honest | واجهة البوت</title>
+    <title>Zllawi be honest | Dashboard</title>
     <meta
       name="description"
-      content="واجهة احترافية لبوت Zllawi be honest مع بانر عريض، شروط استخدام، وقسم Help."
+      content="واجهة تفاعلية لبوت Zllawi be honest بتصميم داشبورد مشابه للصورة المرجعية."
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="texture" aria-hidden="true"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
 
-    <nav class="top-slider" aria-label="أقسام الواجهة">
-      <div class="slider-track">
-        <a
-          class="slide-link is-active"
-          href="#home"
-          data-section-link="home"
-          >الرئيسية</a
-        >
-        <a class="slide-link" href="#terms" data-section-link="terms"
-          >شروط الاستخدام</a
-        >
-        <a class="slide-link" href="#help" data-section-link="help">Help</a>
-      </div>
-    </nav>
-
-    <main class="layout">
-      <section id="home" class="home-section" aria-label="القسم الرئيسي">
-        <div class="wide-banner">
-          <img src="./assets/banner.jpg" alt="صورة بانر لبوت ديسكورد" />
-          <div class="banner-overlay">
-            <p class="kicker">DISCORD ANONYMOUS BOT</p>
-            <h1>واجهة بوت Zllawi be honest</h1>
-            <p>
-              إدارة رسائل مجهولة داخل السيرفر بواجهة واضحة وسريعة مع زر دعوة
-              مباشر.
-            </p>
-            <div class="banner-actions">
-              <a
-                id="inviteBtn"
-                class="invite-btn"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                >دعوة البوت الآن</a
-              >
-              <a class="ghost-btn" href="#help">Help</a>
-            </div>
-            <p id="inviteHint" class="hint"></p>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">❤</div>
+          <div>
+            <h2>Zllawi</h2>
+            <p>Be Honest</p>
           </div>
         </div>
-      </section>
 
-      <section id="terms" class="card terms" aria-labelledby="terms-title">
-        <h2 id="terms-title">شروط الاستخدام</h2>
-        <ul class="terms-list">
-          <li>ممنوع استخدام البوت للإساءة أو التهديد أو الابتزاز أو التشهير.</li>
-          <li>لا تنشر معلومات شخصية حساسة أو بيانات خاصة بالآخرين.</li>
-          <li>مالك السيرفر مسؤول عن ضبط القواعد ومراقبة استخدام البوت.</li>
-          <li>قد يتم تحديث الشروط أو إيقاف الخدمة عند وجود إساءة استخدام.</li>
-          <li>استمرارك في الاستخدام يعني موافقتك على هذه الشروط.</li>
-        </ul>
-        <p class="updated-at">آخر تحديث: 23 أبريل 2026</p>
-      </section>
+        <div class="sidebar-scroll">
+          <section class="nav-group">
+            <p class="group-title">MAIN</p>
+            <button type="button" class="nav-link is-active" data-target="dashboard">
+              Dashboard
+            </button>
+            <button type="button" class="nav-link" data-target="invite">
+              Invite Bot
+            </button>
+          </section>
 
-      <section id="help" class="card help" aria-labelledby="help-title">
-        <h2 id="help-title">Help</h2>
-        <div class="help-grid">
-          <article class="help-card">
-            <h3>كيف أضيف البوت؟</h3>
-            <p>
-              اضغط "دعوة البوت الآن"، اختر السيرفر، ثم وافق على الصلاحيات
-              المطلوبة.
-            </p>
-          </article>
-          <article class="help-card">
-            <h3>كيف أبدأ الإعداد؟</h3>
-            <p>
-              استخدم أمر <code>/setup</code> لتحديد قناة استقبال الرسائل
-              المجهولة.
-            </p>
-          </article>
-          <article class="help-card">
-            <h3>كيف أغير اللغة أو اللون؟</h3>
-            <p>
-              استخدم <code>/language</code> لتغيير اللغة و<code>/color</code>
-              لتعديل الثيم.
-            </p>
-          </article>
+          <section class="nav-group">
+            <p class="group-title">MANAGE</p>
+            <button type="button" class="nav-link" data-target="terms">
+              شروط الاستخدام
+            </button>
+            <button type="button" class="nav-link" data-target="help">Help</button>
+          </section>
         </div>
+
+        <footer class="sidebar-footer">
+          <p class="footer-tag">zllawi#0001</p>
+          <span class="footer-role">Owner</span>
+        </footer>
+      </aside>
+
+      <section class="content-shell">
+        <header class="topbar">
+          <div>
+            <h1 id="sectionTitle">Dashboard</h1>
+            <p id="sectionSubtitle">Overview of your bot and servers</p>
+          </div>
+
+          <div class="top-actions">
+            <button id="themeToggle" type="button" class="icon-btn" aria-label="Toggle theme">
+              ☾
+            </button>
+            <button type="button" class="icon-btn" aria-label="Notifications">🔔</button>
+            <span class="avatar">Z</span>
+          </div>
+        </header>
+
+        <nav class="section-slider" aria-label="Top Sections">
+          <button type="button" class="slide-pill is-active" data-target="dashboard">
+            Dashboard
+          </button>
+          <button type="button" class="slide-pill" data-target="invite">Invite</button>
+          <button type="button" class="slide-pill" data-target="terms">Terms</button>
+          <button type="button" class="slide-pill" data-target="help">Help</button>
+        </nav>
+
+        <main class="views">
+          <section id="dashboard" class="view is-active" aria-label="Dashboard View">
+            <div class="stat-grid">
+              <article class="card stat-card">
+                <p>Total Servers</p>
+                <h3 class="stat-value" data-count="12">12</h3>
+                <span class="delta up">+2 this week</span>
+              </article>
+              <article class="card stat-card">
+                <p>Total Users</p>
+                <h3 class="stat-value" data-count="1248">1,248</h3>
+                <span class="delta up">+156 this week</span>
+              </article>
+              <article class="card stat-card">
+                <p>Total Confessions</p>
+                <h3 class="stat-value" data-count="532">532</h3>
+                <span class="delta up">+73 this week</span>
+              </article>
+              <article class="card stat-card">
+                <p>Online Status</p>
+                <h3 class="status-on">Online</h3>
+                <span class="delta neutral">All systems operational</span>
+              </article>
+            </div>
+
+            <div class="dashboard-grid">
+              <article class="card chart-card">
+                <div class="card-head">
+                  <h2>Confessions Overview</h2>
+                  <span class="badge">This Week</span>
+                </div>
+                <svg viewBox="0 0 640 240" class="line-chart" role="img" aria-label="Confessions chart">
+                  <defs>
+                    <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="rgba(126,103,255,0.38)" />
+                      <stop offset="100%" stop-color="rgba(126,103,255,0.02)" />
+                    </linearGradient>
+                  </defs>
+                  <polyline points="40,190 120,150 200,90 280,135 360,165 440,112 520,82 600,58" />
+                  <polygon points="40,190 120,150 200,90 280,135 360,165 440,112 520,82 600,58 600,220 40,220" />
+                  <g class="points">
+                    <circle cx="40" cy="190" r="4"></circle>
+                    <circle cx="120" cy="150" r="4"></circle>
+                    <circle cx="200" cy="90" r="4"></circle>
+                    <circle cx="280" cy="135" r="4"></circle>
+                    <circle cx="360" cy="165" r="4"></circle>
+                    <circle cx="440" cy="112" r="4"></circle>
+                    <circle cx="520" cy="82" r="4"></circle>
+                    <circle cx="600" cy="58" r="4"></circle>
+                  </g>
+                </svg>
+              </article>
+
+              <article class="card servers-card">
+                <div class="card-head">
+                  <h2>Your Servers</h2>
+                  <button type="button" class="text-btn">View All</button>
+                </div>
+                <ul class="server-list">
+                  <li>
+                    <span class="server-icon">Z</span>
+                    <div>
+                      <h4>Zllawi Community</h4>
+                      <p>245 members • 12 confessions</p>
+                    </div>
+                    <span class="server-status online">Online</span>
+                  </li>
+                  <li>
+                    <span class="server-icon">A</span>
+                    <div>
+                      <h4>Anime Paradise</h4>
+                      <p>892 members • 86 confessions</p>
+                    </div>
+                    <span class="server-status online">Online</span>
+                  </li>
+                  <li>
+                    <span class="server-icon">C</span>
+                    <div>
+                      <h4>Chill Zone</h4>
+                      <p>156 members • 7 confessions</p>
+                    </div>
+                    <span class="server-status idle">Idle</span>
+                  </li>
+                  <li>
+                    <span class="server-icon">G</span>
+                    <div>
+                      <h4>Gaming World</h4>
+                      <p>312 members • 23 confessions</p>
+                    </div>
+                    <span class="server-status online">Online</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="card recent-card">
+                <div class="card-head">
+                  <h2>Recent Confessions</h2>
+                  <button type="button" class="text-btn">View All</button>
+                </div>
+                <ul class="confession-list">
+                  <li>
+                    <div>
+                      <strong>#general</strong>
+                      <p>رسالة مجهولة جديدة وصلت للقناة</p>
+                    </div>
+                    <span class="tag approved">Approved</span>
+                  </li>
+                  <li>
+                    <div>
+                      <strong>#love</strong>
+                      <p>أعترف لشخص مميز في حياتي 💜</p>
+                    </div>
+                    <span class="tag approved">Approved</span>
+                  </li>
+                  <li>
+                    <div>
+                      <strong>#random</strong>
+                      <p>أحتاج رأيكم في موضوع مهم</p>
+                    </div>
+                    <span class="tag pending">Pending</span>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="card actions-card">
+                <h2>Quick Actions</h2>
+                <div class="actions-grid">
+                  <button type="button" class="action-btn primary">Send Announcement</button>
+                  <button type="button" class="action-btn">Create Category</button>
+                  <button type="button" class="action-btn">View Logs</button>
+                  <button type="button" class="action-btn">Manage Commands</button>
+                  <button type="button" class="action-btn">Server Settings</button>
+                  <button type="button" class="action-btn">Auto Response</button>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section id="invite" class="view" aria-label="Invite View">
+            <article class="card large-card">
+              <h2>دعوة البوت</h2>
+              <p>
+                أضف البوت إلى سيرفرك مباشرة من الزر التالي. بعد الدعوة تأكد من منح
+                الصلاحيات المطلوبة لتعمل الأوامر بشكل طبيعي.
+              </p>
+              <a id="inviteBtn" class="invite-main-btn" href="#" target="_blank" rel="noopener noreferrer">
+                دعوة البوت إلى سيرفرك
+              </a>
+              <p id="inviteHint" class="invite-hint"></p>
+            </article>
+          </section>
+
+          <section id="terms" class="view" aria-label="Terms View">
+            <article class="card large-card">
+              <h2>شروط الاستخدام</h2>
+              <ul class="terms-list">
+                <li>يمنع استخدام البوت للإساءة أو التهديد أو نشر أي محتوى مؤذي.</li>
+                <li>لا تشارك بيانات حساسة أو معلومات شخصية تخصك أو تخص الآخرين.</li>
+                <li>إدارة السيرفر مسؤولة عن الإشراف على المحتوى المنشور عبر البوت.</li>
+                <li>قد يتم تحديث الشروط أو إيقاف الخدمة في حال إساءة الاستخدام.</li>
+                <li>استخدامك للبوت يعني موافقتك على جميع البنود المذكورة.</li>
+              </ul>
+              <p class="updated-at">آخر تحديث: 23 أبريل 2026</p>
+            </article>
+          </section>
+
+          <section id="help" class="view" aria-label="Help View">
+            <article class="card large-card">
+              <h2>Help</h2>
+              <div class="help-grid">
+                <article class="help-item">
+                  <h3>كيف أضيف البوت؟</h3>
+                  <p>افتح قسم Invite واضغط زر الدعوة، ثم اختر السيرفر المناسب.</p>
+                </article>
+                <article class="help-item">
+                  <h3>كيف أبدأ الإعداد؟</h3>
+                  <p>استخدم <code>/setup</code> لتحديد قناة استقبال الرسائل المجهولة.</p>
+                </article>
+                <article class="help-item">
+                  <h3>كيف أغير اللغة؟</h3>
+                  <p>استخدم الأمر <code>/language</code> للتحويل بين العربية والإنجليزية.</p>
+                </article>
+                <article class="help-item">
+                  <h3>كيف أغير اللون؟</h3>
+                  <p>استخدم <code>/color</code> لتغيير ثيم ألوان الرسائل والبانل.</p>
+                </article>
+              </div>
+            </article>
+          </section>
+        </main>
       </section>
-    </main>
+    </div>
 
     <script src="./app.js"></script>
   </body>
